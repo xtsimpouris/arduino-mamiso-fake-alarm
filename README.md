@@ -5,16 +5,16 @@ A fake alarm based on arduino
 Tries its best to work without knowing what the current time is. The idea is to follow how bright it is in order to identify night/day and based on predefined delays provide the essance of "armed" or "not armed" alarm.
 
 ## How sunlight is calculated
-Sunlight identifiaction is extremmelly basic. It is based on a photoresitor and function `getLightValue` is responsible to minimize fluctuation. Unfortunately, there is a lot of error noise while reading sunlight values. To make this value as robust as possible, function does the following every time:
+Sunlight identifiaction is extremmelly basic. It is based on a photoresitor and function [getLightValue](https://github.com/xtsimpouris/arduino-mamiso-fake-alarm/blob/main/main.ino#L352) is responsible to minimize fluctuation. Unfortunately, there is a lot of error noise while reading sunlight values. To make this value as robust as possible, function does the following every time:
 
 1. We read 4 times from analog input and devide by 4 to keep "a mean value of current raw reading"
 2. We calculate current new value as a weighted result of..
-    1. 40% of current one,
+    1. 40% of current one, as read in previous step,
     2. 20% of previous value,
     3. 20% of the second value before,
     4. 10% of the third value before and
     5. 10% of fourth value before
-3. Result is kept as "current value" for next calculations and remove the "fourth value before" from history
+3. Result is pushed in the history of values for next calculations and remove the "fourth value before" from history. We always keep 4 results from the past.
 
 The above procedure forces result to be steady between readings while also removes fluctuation. It is expected for the sunlight to change really slowly as time passes.
 
