@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            body {
+                background: #000000;
+            }
+            table {
+                border: 1px solid #ffffff;
+                margin: 0 auto;
+            }
+            table tr {
+
+            }
+            table tr td {
+                width: 242px;
+                height: 300px;
+                background: url(./pcodq9e5i-off.jpg) center center no-repeat;
+            }
+            table tr td.on {
+                background: url(./pcodq9e5i-on.jpg) center center no-repeat;
+            }
+
+            #result {
+                height: 300px;
+                width: calc(4 * 242px);
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="result" width="968" height="300"></canvas>
+        <script>
+            var canvas  = document.getElementById("result");
+
+            var ctx = canvas.getContext('2d');
+            let pattern = [true, true, false, false]
+
+            var imgOFF = new Image();
+            imgOFF.onload = function() {
+                if (!pattern[0])    ctx.drawImage(imgOFF, 0 * 242, 0, 242, 300);
+                if (!pattern[1])    ctx.drawImage(imgOFF, 1 * 242, 0, 242, 300);
+                if (!pattern[2])    ctx.drawImage(imgOFF, 2 * 242, 0, 242, 300);
+                if (!pattern[3])    ctx.drawImage(imgOFF, 3 * 242, 0, 242, 300);
+            }
+            imgOFF.src = 'pcodq9e5i-off.jpg';
+
+            var imgON = new Image();
+            imgON.onload = function() {
+                if (pattern[0])    ctx.drawImage(imgON, 0 * 242, 0, 242, 300);
+                if (pattern[1])    ctx.drawImage(imgON, 1 * 242, 0, 242, 300);
+                if (pattern[2])    ctx.drawImage(imgON, 2 * 242, 0, 242, 300);
+                if (pattern[3])    ctx.drawImage(imgON, 3 * 242, 0, 242, 300);
+            }
+            imgON.src = 'pcodq9e5i-on.jpg';
+        </script>
+    </body>
+</html>
