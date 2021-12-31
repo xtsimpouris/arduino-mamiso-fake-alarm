@@ -1,6 +1,9 @@
 # arduino-mamiso-fake-alarm
 A fake alarm based on arduino
 
+This is how it looks like within an alarm's outside box.
+![Result](images/2021-12-31-07.01.12.gif)
+
 ## Features
 Tries its best to work without knowing what the current time is. The idea is to follow how bright it is in order to identify night/day and based on predefined delays provide the essance of "armed" or "not armed" alarm.
 
