@@ -19,7 +19,7 @@
 #define PHOTO_PIN             A0
 #define LED_TYPE              WS2811
 #define NUMBER_OF_PATTERNS    7
-#define NIGHT_THRESHOLD       600.0
+#define NIGHT_THRESHOLD       580.0
 
 // All patterns are based on this time delay
 #define MAIN_DELAY            900.0 * TIME_MILLISEC
