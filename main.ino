@@ -361,8 +361,6 @@ double getLightValue() {
   val += analogRead(A0);
   val += analogRead(A0);
 
-  Serial.println(val / 4.0);
-
   light_history[0] =
     (val / 4.0)      * 0.4 +
     light_history[1] * 0.2 +
