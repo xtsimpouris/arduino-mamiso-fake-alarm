@@ -7,8 +7,6 @@
 # LibrePCB files
 .autosave/
 .backup/
-user/
-*.user.lp
 .lock
 *~
 
