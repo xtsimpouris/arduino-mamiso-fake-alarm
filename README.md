@@ -22,7 +22,8 @@ Notes:
 1. Connect `D3` (set as `DATA_PIN` in source code) with data line of the RGB LED strip
 2. Connect `A0` (set as `PHOTO_PIN` in source code) with the one end of photoresistor along a 100kΩ resistor towards ground. Connect the other end of the photoresistor with 5V.
 
-(apparently a schematic will do a better job, todo)
+Following is an attempt to create a scematic of my implementation, using [LibrePCB](https://librepcb.org).
+![Schematic, attempt v1](images/schematic-v1.jpg)
 
 ## How sunlight is calculated
 Sunlight identifiaction is extremmelly basic. It is based on a photoresitor and function [getLightValue](https://github.com/xtsimpouris/arduino-mamiso-fake-alarm/blob/main/arduino-mamiso-fake-alarm.ino#L352) is responsible to minimize fluctuation. Unfortunately, there is a lot of error noise while reading sunlight values. To make this value as robust as possible, function does the following every time:
