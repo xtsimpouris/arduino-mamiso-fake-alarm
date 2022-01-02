@@ -7,6 +7,15 @@ This is how it looks like within an alarm's outside box.
 ## Features
 Tries its best to work without knowing what the current time is. The idea is to follow how bright it is in order to identify night/day and based on predefined delays provide the essance of "armed" or "not armed" alarm.
 
+## Dependencies
+
+1. [FastLED](https://www.arduino.cc/reference/en/libraries/fastled/) in order to communicate with the addressable LED strip
+2. Addressable RGB LED strip with 4 (four) leds, `WS2811`-mode based. Type can be changed through `LED_TYPE`  definiton. Note, it is not easy to change number of leds, as patterns are hardcoded for this number. However, they can be easilly improved to whatever new need may arise.
+
+Notes:
+
+1. Apparently, an addressable LED strip is overkill to handle 4 leds. Needless to say RGB is even more overkill, as only Black (off) or White is used. The whole project was just an excuse to start playing with RGB led strip, so after buying one I decided to go with that approach. On the other hand, while an overkill, addressable led strip simplified A LOT final implementation.
+
 ## How sunlight is calculated
 Sunlight identifiaction is extremmelly basic. It is based on a photoresitor and function [getLightValue](https://github.com/xtsimpouris/arduino-mamiso-fake-alarm/blob/main/arduino-mamiso-fake-alarm.ino#L352) is responsible to minimize fluctuation. Unfortunately, there is a lot of error noise while reading sunlight values. To make this value as robust as possible, function does the following every time:
 
